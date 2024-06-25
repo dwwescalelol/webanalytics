@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+data_ingestion/__init__.py
+data_ingestion.egg-info/PKG-INFO
+data_ingestion.egg-info/SOURCES.txt
+data_ingestion.egg-info/dependency_links.txt
+data_ingestion.egg-info/requires.txt
+data_ingestion.egg-info/top_level.txt
+data_ingestion/assets/__init__.py
+data_ingestion/assets/crazy_games.py
+data_ingestion/resources/__init__.py
+data_ingestion/resources/crazygames.py
+data_ingestion/resources/io_managers.py
+data_ingestion/services/__init__.py
+data_ingestion/services/scraper.py

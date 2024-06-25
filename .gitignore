@@ -1,0 +1,19 @@
+/*.venv
+# Ignore all folders starting with tmp
+tmp*/
+
+# Other common ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.env
+.DS_Store
+node_modules/
+dist/
+build/
+dagster_home/
+.vscode
