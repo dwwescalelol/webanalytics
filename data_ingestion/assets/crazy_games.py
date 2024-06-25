@@ -1,9 +1,12 @@
+from data_ingestion.constants.table_names import Table
 from data_ingestion.resources.crazygames import CrazyGamesResource
 from dagster import AssetIn, Output, asset, get_dagster_logger
 import polars as pl
 from dagster import asset
 
 from data_ingestion.resources.github_pages_reasource import GitHubPagesResource
+
+
 
 
 @asset(
@@ -78,13 +81,11 @@ def load_ratings(
     }
 
     # Fetch current data
-    existing_data = github_pages.get_data("docs/data/game_raiting_history.json")
+    existing_data = github_pages.get_data(Table.GAME_RATINGS)
 
     # Append the new row
     existing_data.append(new_rating)
 
     # Update the JSON file on github_pages
-    github_pages.update_data("docs/data/game_raiting_history.json",
-                             existing_data, "Add new game rating")
+    github_pages.load_data(Table.GAME_RATINGS, existing_data, f"Loaded {len(existing_data)} new rows.")
 
-    logger.info(f"Added new rating: {new_rating}")
