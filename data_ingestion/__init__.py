@@ -16,7 +16,7 @@ defs = Definitions(
         "io_manager": LocalFileSystemIOManager(base_path="dagster_home/data"),
         "cg_resource": CrazyGamesResource(),
         "github_pages": GitHubPagesResource(
-            repo_name="your-username/simple-json-db",
+            repo_name="dwwescalelol/webanalytics",
             token=os.getenv("GITHUB_TOKEN")
         )
     },

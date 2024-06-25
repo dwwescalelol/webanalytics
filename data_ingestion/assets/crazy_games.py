@@ -3,7 +3,7 @@ from dagster import AssetIn, Output, asset, get_dagster_logger
 import polars as pl
 from dagster import asset
 
-from data_ingestion.resources.github_pages_reasource import GitHubPagesResource, SQLiteResource
+from data_ingestion.resources.github_pages_reasource import GitHubPagesResource
 
 
 @asset(
@@ -74,17 +74,17 @@ def load_ratings(
         "name": row["name"],
         "up_votes": row["upVotes"],
         "down_votes": row["downVotes"],
-        "time": row["time"]
+        "currentTime": row["currentTime"]
     }
 
     # Fetch current data
-    existing_data = github_pages.get_data("data/game_ratings.json")
+    existing_data = github_pages.get_data("docs/data/game_raiting_history.json")
 
     # Append the new row
     existing_data.append(new_rating)
 
     # Update the JSON file on github_pages
-    github_pages.update_data("data/game_ratings.json",
+    github_pages.update_data("docs/data/game_raiting_history.json",
                              existing_data, "Add new game rating")
 
     logger.info(f"Added new rating: {new_rating}")
